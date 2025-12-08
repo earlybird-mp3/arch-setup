@@ -45,3 +45,6 @@ kvantum-qt5
 qt6ct
 gnome-themes-extra
 papirus-icon-theme
+
+# --- Browser ---
+firefox
