@@ -41,7 +41,7 @@ dolphin
 # --- Qt/GTK Theme-Zeug (optional, hilft beim hübsch machen) ---
 kvantum
 kvantum-qt5
-kvantum-qt6
+#kvantum-qt6 Packet existiert nicht
 qt6ct
 gnome-themes-extra
 papirus-icon-theme
