@@ -4,63 +4,177 @@ configuration {
     show-icons: true;
     icon-theme: "Papirus";
     terminal: "ghostty";
+ 
     drun-match-fields: "name,generic,exec,categories,keywords";
-    display-drun: "  Apps";
-    sidebar-mode: false;
+    display-drun: "Apps";
+ 
+    /* Seitenleiste links (drun/run) */
+    sidebar-mode: true;
+ 
+    /* ein bisschen Komfort */
+    disable-history: false;
+    hover-select: true;
 }
-
-@theme "hypr-dark"
-
+ 
+/* ------------------- Farben & Defaults ------------------- */
+ 
 * {
-  background:  #1e222a;
-  background-alt: #2b3040;
-  foreground:  #c5c8e6;
-  accent:      #5e81ac;
-  urgent:      #bf616a;
-  border-radius: 10;
+    bg:                #0f172a;
+    bg-alt:            #111827;
+    bg-alt2:           #1f2937;
+    fg:                #e5e7eb;
+    fg-muted:          #9ca3af;
+ 
+    accent:            #4f46e5;
+    accent-soft:       #1d2a4d;
+    urgent:            #f97373;
+ 
+    border-radius:     20px;
 }
-
+ 
+/* ------------------- Fenster ------------------- */
+ 
 window {
-  transparency: "real";
-  location: center;
-  width: 40%;
-  border: 2px;
-  border-color: @accent;
-  padding: 12px;
-  background-color: @background;
+    transparency:      "real";
+    location:          center;
+    width:             42%;
+    padding:           0px;
+    border-radius:     24px;
+    background-color:  transparent;
 }
-
+ 
+/* Hauptcontainer: links Sidebar, rechts Inhalt */
 mainbox {
-  spacing: 8px;
+    orientation:       horizontal;
+    spacing:           0px;
+    border-radius:     inherit;
+    background-color:  @bg;
+    children:          [ "sidebar", "content" ];
 }
-
+ 
+/* ------------------- Linke Spalte ------------------- */
+ 
+sidebar {
+    orientation:       vertical;
+    spacing:           18px;
+    padding:           22px 18px;
+    background-color:  @bg-alt2;
+    border-radius:     24px 0px 0px 24px;
+    children:          [ "avatar", "mode-switcher" ];
+}
+ 
+/* kleiner Avatar-Kreis oben */
+avatar {
+    width:             44px;
+    height:            44px;
+    border-radius:     22px;
+    background-color:  @accent;
+}
+ 
+/* Buttons für drun/run in der Leiste */
+mode-switcher {
+    spacing:           10px;
+    orientation:       vertical;
+    background-color:  transparent;
+}
+ 
+button {
+    padding:           8px 12px;
+    border-radius:     999px;
+    background-color:  @bg-alt;
+    text-color:        @fg-muted;
+    cursor:            pointer;
+}
+button selected {
+    background-color:  @accent;
+    text-color:        #ffffff;
+}
+ 
+/* ------------------- Rechte Spalte (Suche + Liste) ------------------- */
+ 
+content {
+    orientation:       vertical;
+    spacing:           14px;
+    padding:           22px 22px 22px 20px;
+    background-color:  transparent;
+    children:          [ "inputbar", "listview" ];
+}
+ 
+/* Suchleiste */
 inputbar {
-  spacing: 8px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  background-color: @background-alt;
+    spacing:           8px;
+    padding:           10px 16px;
+    border-radius:     999px;
+    background-color:  @bg-alt2;
+    text-color:        @fg;
+    children:          [ "textbox-prompt", "entry" ];
 }
-
-prompt {
-  text: " ";
+ 
+textbox-prompt {
+    expand:            false;
+    str:               "";
+    text-color:        @fg-muted;
 }
-
+ 
 entry {
-  placeholder: "Tippe zum Suchen...";
+    background-color:  transparent;
+    text-color:        @fg;
+    placeholder:       "Search applications…";
+    placeholder-color: @fg-muted;
+    cursor:            text;
 }
-
+ 
+/* App-Liste */
 listview {
-  lines: 10;
-  spacing: 4px;
-  fixed-height: 0;
+    columns:           1;
+    lines:             8;
+    spacing:           8px;
+    cycle:             true;
+    dynamic:           true;
+    scrollbar:         false;
+    layout:            vertical;
+ 
+    background-color:  transparent;
+    text-color:        @fg;
 }
-
+ 
+/* Einträge (mit Icon + Text) */
 element {
-  padding: 4px 8px;
-  border-radius: 6px;
+    orientation:       horizontal;
+    spacing:           10px;
+    padding:           9px 12px;
+    border-radius:     14px;
+    background-color:  transparent;
+    text-color:        @fg;
+    cursor:            pointer;
+    children:          [ "element-icon", "element-text" ];
 }
-
-element selected {
-  background-color: @accent;
-  foreground: #ffffff;
+ 
+element normal.normal {
+    background-color:  transparent;
+    text-color:        @fg;
+}
+ 
+element selected.normal {
+    background-color:  @accent-soft;
+    text-color:        @fg;
+}
+ 
+element normal.urgent,
+element selected.urgent {
+    background-color:  @urgent;
+    text-color:        #ffffff;
+}
+ 
+element-icon {
+    size:              28px;
+    background-color:  transparent;
+    text-color:        inherit;
+}
+ 
+element-text {
+    background-color:  transparent;
+    text-color:        inherit;
+    vertical-align:    0.5;
+    horizontal-align:  0.0;
 }

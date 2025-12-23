@@ -29,11 +29,17 @@ window#waybar {
 
 #clock,
 #pulseaudio,
+#bluetooth,
 #network,
 #battery,
-#tray,
 #window {
   padding: 0 8px;
+}
+
+#bluetooth,
+#network,
+#battery {
+  margin-left: 8px;
 }
 
 #battery.warning {
@@ -43,3 +49,4 @@ window#waybar {
 #battery.critical {
   color: #bf616a;
 }
+
