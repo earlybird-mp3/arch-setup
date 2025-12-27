@@ -1,50 +1,53 @@
-# --- Basis / Tools ---
-git
-base-devel
-sudo
-curl
-wget
-htop
-fastfetch
-eza
-bat
-
-# --- Fonts & Icons (für hübsche Prompts, Waybar, Rofi) ---
-ttf-nerd-fonts-symbols
-ttf-nerd-fonts-symbols-mono
-ttf-jetbrains-mono-nerd
-
-# --- Netzwerk ---
-networkmanager
-network-manager-applet
-
-# --- Hyprland Core ---
-hyprland
-xdg-desktop-portal-hyprland
-hyprpaper
-hypridle
-hyprlock
-hyprpolkitagent
-
-# --- Bar / Launcher / Notifications ---
-waybar
-rofi
-dunst
-
-# --- Terminal wie bei Omarchy ---
-ghostty
 alacritty
-
-# --- Filemanager wie bei HyDE ---
+base
+base-devel
+bat
+blueman
+bluez
+bluez-utils
+brightnessctl
 dolphin
-
-# --- Qt/GTK Theme-Zeug (optional, hilft beim hübsch machen) ---
+dunst
+efibootmgr
+eza
+fastfetch
+firefox
+ghostty
+git
+gnome-themes-extra
+gst-plugin-pipewire
+htop
+hypridle
+hyprland
+hyprlock
+hyprpaper
+hyprpolkitagent
+intel-ucode
+iw
+iwd
+keepassxc
 kvantum
 kvantum-qt5
-#kvantum-qt6 Packet existiert nicht
-qt6ct
-gnome-themes-extra
+libpulse
+linux
+linux-firmware
+nano
+networkmanager
+network-manager-applet
+networkmanager-dmenu
 papirus-icon-theme
-
-# --- Browser ---
-firefox
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+qt6ct
+rofi
+sof-firmware
+ttf-jetbrains-mono-nerd
+ttf-nerd-fonts-symbols
+ttf-nerd-fonts-symbols-mono
+waybar
+wget
+wireplumber
+xdg-desktop-portal-hyprland
+zram-generator
